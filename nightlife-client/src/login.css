@@ -1,55 +1,11 @@
-
-
-html {
-  height: 100%;
-  /* border: 3px solid black; */
-}
-
-body {
-  height: 100%;
-  /* border: 3px solid purple; */
-  /* margin-top: 0 important!; */
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-#root {
-  /* border: 3px solid green; */
-  height: 100%;
-}
-
-.App {
-  /* border: 3px solid blue; */
-  height: 100%;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-.login-page {
-  display: flex;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/login-background.jpg');
-  background-size: cover;
-  height: 100%;
-}
-
-.logo {
-  height: 80px;
-  width: 80px;
-  text-align: left;
-}
-
-/*****LOGIN*****/
-
 @import url('https://fonts.googleapis.com/css?family=Raleway:300');
 @import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+*{
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
 
 .heading_h1{
 	color: #00a4e4;
@@ -121,5 +77,3 @@ input[type="password"]:focus{
 	text-decoration: none;
 	color: #00a4e4;
 }
-
-/*****************/
