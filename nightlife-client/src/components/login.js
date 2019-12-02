@@ -6,7 +6,7 @@ export default class Login extends React.Component {
         return (
             <div className="login-page">
             <div className="container mainContent">
-	<h1 className="text-center heading_h1">NightLife<span className="sub_h1">- Log In</span></h1>
+	<h1 className="text-center font heading_h1">NightLife<span className="sub_h1">- Log In</span></h1>
 	<div className="row">
 		<div className="col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3 loginContainer">
 			<form method="post">

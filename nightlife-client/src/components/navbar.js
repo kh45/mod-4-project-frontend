@@ -5,9 +5,10 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div>
-          <img className="logo" src={logo} alt="Logo" />
-      </div>
+            <div className="navbar transparent navbar-inverse">
+                <a className="navbar-brand font" href="#">NightLife</a>
+                <button type="button" className="btn navbar-text btn-primary">Logout</button>
+            </div>
     );
   }
 
