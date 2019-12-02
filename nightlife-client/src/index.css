@@ -39,6 +39,7 @@ code {
   height: 100%;
 }
 
+
 .logo {
   height: 80px;
   width: 80px;
@@ -53,8 +54,8 @@ code {
 .heading_h1{
 	color: #00a4e4;
 	font-family: 'Raleway', sans-serif;
-	margin-top: 100px;
-	margin-bottom: 20px;
+	/* margin-top: 100px; */
+	/* margin-bottom: 20px; */
 }
 
 .heading_h1 .sub_h1{
@@ -63,10 +64,11 @@ code {
 }
 
 .loginContainer{
-	background-color: #13293d;
+	/* background-color: #13293d; */
 	height: 400px;
 	border-radius: 10px;
-	padding-top: 100px;
+  /* padding-top: 100px; */
+  margin: auto;
 	font-family: 'Quicksand', sans-serif;
 }
 
@@ -106,6 +108,10 @@ input[type="password"]:focus{
 	border:1px solid #00a4e4;
 	border-radius: 50px;
 }
+
+/* .login-form{
+  margin-left: 200px;
+} */
 
 .forgotLink a{
 	text-decoration: none;

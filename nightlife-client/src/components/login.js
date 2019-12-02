@@ -8,8 +8,8 @@ export default class Login extends React.Component {
             <div className="container mainContent">
 	<h1 className="text-center font heading_h1">NightLife<span className="sub_h1">- Log In</span></h1>
 	<div className="row">
-		<div className="col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3 loginContainer">
-			<form method="post">
+		<div className="col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3 loginContainer" align="center">
+			<form className="login-form" method="post">
 				<div className="col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2 form-group">
 					<input type="text" name="username" placeholder="Username" className="form-control" required="" />
 				</div>
