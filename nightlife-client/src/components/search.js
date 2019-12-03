@@ -1,5 +1,6 @@
 import React from 'react'
-import { EventEmitter } from 'events'
+import CardContainer from '../containers/CardContainer'
+import Card from './cards'
 const URL_1 = 'https://app.ticketmaster.com/discovery/v2/attractions.json?keyword='
 const URL_2 = '&classificationId=KZFzniwnSyZfZ7v7nJ&apikey=1i46AcS72ycCMynN5TKWZ3wLHfn4cDtl'
 
@@ -20,23 +21,23 @@ export default class Search extends React.Component {
 
     searchForArtist = (event) => {
         event.preventDefault()
-        console.log('IM SEARCHING')
-        console.log(this.state.query)
         let query = this.cleanName(this.state.query)
         console.log(`${URL_1}${query}${URL_2}`)
         fetch(`${URL_1}${query}${URL_2}`)
         .then(response => response.json())
-        .then(response => console.log(response))
+        .then(artists => this.setState({results: artists._embedded.attractions}))
     }
 
     cleanName = (name) => {
         return name.replace(/ /g, "%20")
     }
 
+    generateCards = (array) => array.map(single => <Card single={single} />)
 
     render() {
         return (
     <div className="background-container">
+        <h1>SEARCH FOR YOUR STUFF</h1>
         <h6>Option 1 - input group</h6>
         <div className="row">
             <div className="col-md-12">
@@ -51,6 +52,9 @@ export default class Search extends React.Component {
         </div>
     </div>
     <hr />
+    {/* {this.generateCards(this.state.results)} */}
+    {/* <CardContainer cards={this.generateCards(this.state.results)}/> */}
+    <CardContainer cards={this.state.results}/>
     </div>
         )
     }

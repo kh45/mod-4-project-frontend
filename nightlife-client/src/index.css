@@ -1,5 +1,3 @@
-
-
 html {
   height: 100%;
 }
@@ -13,6 +11,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/login-background.jpg');
+  background-size: cover;
+  background-repeat: repeat;
 }
 
 #root {
@@ -38,9 +39,11 @@ code {
   /* display: flex; */
   /* justify-content: center; */
   /* align-items: center; */
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/login-background.jpg');
+  /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/login-background.jpg');
   background-size: cover;
-  height: 100%;
+  background-repeat: repeat; */
+  /* height: 100%; */
+  /* I DONT KNOW IF THIS SERVES A PURPOSE ANYMORE */
 }
 
 
@@ -129,6 +132,17 @@ input[type="password"]:focus{
 .signupLink a{
 	text-decoration: none;
 	color: #00a4e4;
+}
+
+.card {
+  width: 400px;
+  margin: 100px;
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* grid-column-gap: 50px; */
 }
 
 
