@@ -19,6 +19,10 @@ export default class App extends React.Component {
   renderRedirect = () => {
     return window.history.pushState(null, null, '/new')
   }
+
+  // handleLikeButton = () => {
+  //   let stateCopy = {...currentUserEvents:}
+  // }
   
 
   createAccount = (event) => {
