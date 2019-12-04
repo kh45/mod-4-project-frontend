@@ -3,13 +3,18 @@ import SavedEventContainer from './saved_event_container'
 
 class User extends Component {
 
-  render() {
-    
-    return (
-        <div>
-            <h1>Your events:</h1>
+  // generateCards = (array) => array.map(single => <Card single={single} />)
 
+  render() {
+    return(
+      <div className="artistProfileContainer"> 
+        <div className="sidenav">
+            <div>
+                <img className= "artistProfilePic" />
+                <h1>{this.props.currentUser.name}</h1>
+            </div>
         </div>
+      </div>
     )
   }
 }

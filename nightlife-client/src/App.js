@@ -4,7 +4,7 @@ import Login from './components/login'
 import User from './containers/user'
 import Navbar from './components/navbar'
 import Search from './components/search'
-import CreateAccount from './components/create_account'
+import CreateAccount from './components/createaccount'
 import {BrowserRouter, Redirect, Route, Switch} from 'react-router-dom'
 
 export default class App extends React.Component {
@@ -19,6 +19,7 @@ export default class App extends React.Component {
   renderRedirect = () => {
     return window.history.pushState(null, null, '/new')
   }
+  
 
   createAccount = (event) => {
     event.preventDefault()
@@ -35,7 +36,12 @@ export default class App extends React.Component {
         })
     })
     .then(resp => resp.json())
-    .then(user => this.setState({current_user: user}))
+    .then(user => this.setState({currentUser: user}))
+  }
+
+  userButtonHandler = () => {
+    console.log('here')
+    return <Redirect to="/users" />
   }
 
   logoutHandler = () => {
@@ -66,10 +72,12 @@ export default class App extends React.Component {
   return (
     <BrowserRouter>
     <div className="App">
-      {this.state.currentUser ? <Navbar logoutHandler={this.logoutHandler}/> : null}
+      {this.state.currentUser ? <Navbar 
+        logoutHandler={this.logoutHandler}
+        userButtonHandler={this.userButtonHandler}/> : null}
       <Switch>
         <Route exact path="/">
-          {this.state.currentUser? <Redirect to="/search" /> : <Login 
+          {this.state.currentUser ? <Redirect to="/search" /> : <Login 
               logIn={this.logIn}
               renderRedirect={this.renderRedirect}/>
           }
@@ -79,13 +87,14 @@ export default class App extends React.Component {
         }}/>
         <Route exact path="/users" render={(props) => {
           return <User 
-            currentUser={this.state.current_user}/>
+            currentUser={this.state.currentUser}
+            currentUsersEvents={this.state.currentUsersEvents}/>
         }}/>
-        <Route exact path="/new" render={(props) => {
-          return <CreateAccount 
-            createAccount={this.createAccount}
-          />
-        }}/>
+        <Route exact path="/new">
+          {this.state.currentUser ? <Redirect to="/search" /> : <CreateAccount 
+              createAccount={this.createAccount}
+          />}
+        </Route>
       </Switch>
     </div>
     </BrowserRouter>

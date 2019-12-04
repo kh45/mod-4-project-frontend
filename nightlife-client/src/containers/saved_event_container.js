@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import SavedEventCard from '../components/saved_event_card'
+import SavedEventCard from '../components/savedeventcard'
 
 class SavedEventContainer extends Component {
 
