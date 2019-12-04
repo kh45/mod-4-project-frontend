@@ -3,13 +3,15 @@ import React from 'react'
 export default class Card extends React.Component {
 
     render() {
+        const {name, id, images} = this.props.single
+        console.log(images)
         return (
-            <div class="card" style="width:400px">
-                <img class="card-img-top" src="img_avatar1.png" alt="Card image" />
-                <div class="card-body">
-                    <h4 class="card-title">John Doe</h4>
-                    <p class="card-text">Some example text.</p>
-                    <a href="#" class="btn btn-primary">See Profile</a>
+            <div className="card" onClick={() => this.props.showProfile(this.props.single)}>
+                <img className="card-img-top" src={images[1].url} alt="Card image" />
+                <div className="card-body">
+                    <h4 className="card-title">{name}</h4>
+                    <p className="card-text">Some example text.</p>
+                    <a href="#" className="btn btn-primary">See Profile</a>
                     </div>
             </div>
         )

@@ -1,5 +1,3 @@
-
-
 html {
   height: 100%;
 }
@@ -13,6 +11,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/login-background.jpg');
+  background-size: cover;
+  background-repeat: repeat;
 }
 
 #root {
@@ -38,9 +39,16 @@ code {
   /* display: flex; */
   /* justify-content: center; */
   /* align-items: center; */
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/login-background.jpg');
+  /* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/login-background.jpg');
   background-size: cover;
-  height: 100%;
+  background-repeat: repeat; */
+  /* height: 100%; */
+  /* I DONT KNOW IF THIS SERVES A PURPOSE ANYMORE */
+}
+
+.searchContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
 }
 
 
@@ -131,6 +139,55 @@ input[type="password"]:focus{
 	color: #00a4e4;
 }
 
+.card {
+  width: 400px;
+  margin: 100px;
+  /* background-color: transparent; */
+}
+
+.cardContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  /* grid-column-gap: 50px; */
+}
+
+.artistProfileContainer {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.artistProfilePic {
+  height: 200px;
+  width: auto;
+  border-radius: 50%;
+}
+
+/* .hello {
+  color: white;
+} */
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 400px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: rgba(2, 9, 19);
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+.social-icon {
+  height: 40px;
+  width: 40px;
+  margin: 20px;
+}
+
+.social-icon:hover {
+  cursor: pointer;
+  opacity: 0.5;
+}
 
 
 /*****************/
