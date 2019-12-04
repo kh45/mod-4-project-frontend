@@ -73,7 +73,7 @@ code {
 }
 
 .heading_h1 .sub_h1{
-	color: #13293d;
+	color: white;
 	font-weight: bolder;
 }
 
@@ -196,7 +196,9 @@ input[type="password"]:focus{
 
 
 .font {
-  font-family: 'Fredoka One';
+  font-family: 'Montserrat', sans-serif;
+  font-size: 60px;
+  color: white;
 }
 
 .navbar {
