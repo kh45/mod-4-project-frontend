@@ -12,7 +12,7 @@ export default class Login extends React.Component {
 							<div className="col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3 loginContainer" align="center">
 								<form className="login-form" method="post" onSubmit={this.props.logIn}>
 									<div className="col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2 form-group">
-										<input type="text" name="username" placeholder="Username" className="form-control" required="" />
+										<input type="text" name="name" placeholder="Username" className="form-control" required="" />
 									</div>
 									<div className="col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2  form-group">
 										<input type="password" name="password" placeholder="Password" className="form-control" required="" />

@@ -11,9 +11,8 @@ export default class App extends React.Component {
   constructor() {
     super()
     this.state = {
-      logged_in: false,
-      current_user: {},
-      current_users_events: {}
+      currentUser: null,
+      currentUsersEvents: null
     }
   }
 
@@ -36,27 +35,42 @@ export default class App extends React.Component {
         })
     })
     .then(resp => resp.json())
-    .then(user => this.setState({currentUser: user}))
-    window.history.pushState(null, null, '/search')
+    .then(user => this.setState({current_user: user}))
+  }
+
+  logoutHandler = () => {
+    this.setState({currentUser: null})
+    window.history.pushState(null, null, '/')
     window.location.reload()
   }
 
-  logIn = () => {
-    this.setState({
-      logged_in: true
-    })
+  logIn = (event) => {
+    event.preventDefault()
+    fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Accept' : 'application/json'
+        },
+        body: JSON.stringify({
+            "name" : `${event.target.name.value}`,
+            "password" : `${event.target.password.value}`,
+        })
+      })
+    .then(resp => resp.json())
+    .then(user => this.setState({currentUser: user}))
+    .catch(() => alert("Please enter a valid username."))
   }
   
   render() {
   return (
     <BrowserRouter>
     <div className="App">
-      {this.state.logged_in ? <Navbar /> : null}
+      {this.state.currentUser ? <Navbar logoutHandler={this.logoutHandler}/> : null}
       <Switch>
         <Route exact path="/">
-          {this.state.logged_in? <Redirect to="/search" /> : <Login 
+          {this.state.currentUser? <Redirect to="/search" /> : <Login 
               logIn={this.logIn}
-              
               renderRedirect={this.renderRedirect}/>
           }
         </Route>
