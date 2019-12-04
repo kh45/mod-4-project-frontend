@@ -152,9 +152,28 @@ input[type="password"]:focus{
 }
 
 .artistProfileContainer {
+  height: 100%;
   display: grid;
   grid-template-columns: 1fr 2fr;
+  /* grid-row-start: 2; */
+  /* grid-template-rows: 1fr 9fr; */
 }
+
+.artistEventsContainer {
+  display: grid;
+  grid-template-rows: 1% 99%;
+}
+
+.pls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.hello {
+  color: white;
+  /* margin-right: 500px; */
+}
+
 
 .artistProfilePic {
   height: 200px;
@@ -162,19 +181,16 @@ input[type="password"]:focus{
   border-radius: 50%;
 }
 
-/* .hello {
-  color: white;
-} */
-
 .sidenav {
+  /* display: none; */
   height: 100%; /* Full-height: remove this if you want "auto" height */
   width: 400px; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
+  /* position: fixed; */
+  /* z-index: 1; Stay on top */
+  /* top: 0; Stay at the top */
+  /* left: 0; */
   background-color: rgba(2, 9, 19);
-  overflow-x: hidden; /* Disable horizontal scroll */
+  /* overflow-x: hidden; Disable horizontal scroll */
   padding-top: 20px;
 }
 
@@ -187,6 +203,16 @@ input[type="password"]:focus{
 .social-icon:hover {
   cursor: pointer;
   opacity: 0.5;
+}
+
+.eventCard {
+  width: 540px;
+  height: 250px;
+}
+
+.eventcard-img {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 
