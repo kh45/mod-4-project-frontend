@@ -1,10 +1,40 @@
 import React from 'react'
+import EventCard from './EventCards'
+import CardContainer from '../containers/CardContainer'
 // import * as pics from '../assets'
+const eventsURL = 'https://app.ticketmaster.com/discovery/v2/events.json?attractionId='
+const apiKey = '&apikey=1i46AcS72ycCMynN5TKWZ3wLHfn4cDtl'
 
 export default class ArtistProfile extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            upcomingEvents : []
+        }
+    }
 
     openNewWindow(url){
         window.open(url, '_blank');
+    }
+
+    getArtistEvents = (id) => {
+        return fetch(`${eventsURL}${id}${apiKey}`)
+        .then(response => response.json())
+        .then(events => this.setState({
+            upcomingEvents: events._embedded.events
+        }))
+    }
+
+    componentDidMount = () => {
+        this.getArtistEvents(this.props.artist.id)
+    }
+
+    generateEventCards = (events) => {
+        console.log(events)
+        let k = events.map(event => <EventCard event={event} key={event.id} />)
+        // let k = events.map(event => <div>hello</div>)
+        console.log(k)
+        return k
     }
 
 
@@ -33,7 +63,13 @@ export default class ArtistProfile extends React.Component {
                         <button className="button" onClick={() => this.openNewWindow(url)} >Get Tickets</button>
                     </div>
                 </div>
-                <h1 className="hello">Upcoming shows</h1>
+                <div className="artistEventsContainer">
+                    <h1 className="hello">Upcoming Shows</h1>
+                    <div className="pls">
+                        {this.generateEventCards(this.state.upcomingEvents)}
+                    </div>
+                </div>
+                {/* <CardContainer cards={this.generateEventCards(this.state.upcomingEvents)}/> */}
             </div>
         )
     }
