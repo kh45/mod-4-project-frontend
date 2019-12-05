@@ -7,7 +7,8 @@ export default class Login extends React.Component {
         return (
             <div className="background-container">
             	<div className="container mainContent">
-					<h1 className="text-center font heading_h1">NightLife<span className="sub_h1">- Log In</span></h1>
+					<h1 className="logo loginheader text-center font heading_h1">NightLife</h1>
+				
 						<div className="row">
 							<div className="col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3 loginContainer" align="center">
 								<form className="login-form" method="post" onSubmit={this.props.logIn}>

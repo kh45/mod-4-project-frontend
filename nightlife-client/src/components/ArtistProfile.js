@@ -71,7 +71,7 @@ export default class ArtistProfile extends React.Component {
                     </div>
                 </div>
                 <div className="artistEventsContainer">
-                    <h1 className="hello">Upcoming Shows</h1>
+                    <h1 className="logo hello">Upcoming Shows</h1>
                     <div className="pls">
                         {this.generateEventCards(this.state.upcomingEvents)}
                     </div>

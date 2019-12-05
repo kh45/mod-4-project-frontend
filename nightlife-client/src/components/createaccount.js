@@ -6,7 +6,7 @@ class CreateAccount extends Component {
         return (
             <div className="background-container">
             	<div className="container mainContent">
-					<h1 className="text-center font heading_h1">Create Account</h1>
+					<h1 className="logo text-center font heading_h1">Create Account</h1>
 						<div className="row">
 							<div className="col-md-6 col-md-offset-3 col-xs-6 col-xs-offset-3 loginContainer" align="center">
 								<form className="login-form" method="post" onSubmit={(event) => this.props.createAccount(event)}>
