@@ -74,7 +74,9 @@ export default class EventCard extends React.Component {
                     "start" : `${this.props.event.dates.start.localTime}`,
                     "venue" : `${this.props.event._embedded.venues[0].name}`,
                     "image" : `${this.props.event.images[0].url}`,
-                    "api_id" : `${this.props.event.id}`
+                    "api_id" : `${this.props.event.id}`,
+                    "city" : `${this.props.event._embedded.venues[0].city.name}`,
+                    "state" : `${this.props.event._embedded.venues[0].state.stateCode}`
                 })
             })
             .then(resp => resp.json())
@@ -117,6 +119,25 @@ export default class EventCard extends React.Component {
         } else {
             img_url = images[0].url;
         }
+        let date;
+        if (this.props.event.dates === undefined) {
+            date = this.props.event.start
+        } else {
+            date = this.props.event.dates.start.localDate
+        }
+        let city;
+        let state;
+        let venue;
+        if (this.props.event._embedded) {
+            venue = this.props.event._embedded.venues[0].name;
+            // debugger
+            this.props.event._embedded.venues[0].state ? state = this.props.event._embedded.venues[0].state.stateCode : state = this.props.event._embedded.venues[0].country.name;
+            city = this.props.event._embedded.venues[0].city.name
+        } else {
+            venue = this.props.event.venue;
+            state = this.props.event.state;
+            city = this.props.event.city;
+        }
         return (
             <div className="card mb-3 eventCard">
                 <div className="row no-gutters">
@@ -128,10 +149,11 @@ export default class EventCard extends React.Component {
                         
                             <p  className="like">Like! <span onClick={(event) => this.onClickHandler(event)} id={`${this.props.event.id}`} className="like-glyph">&#x2661;</span></p>
                     
-                         <h5 className="card-title">{name}</h5>
-                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                            <button onClick={() => this.props.addEventToFavorites(this.props.event)}>hello</button>
+                         <h5 className="card-title eventText">{name}</h5>
+                            <h4 className="eventText">{venue}</h4>
+                            <h5 className="eventText">{city}, {state}</h5>
+                            <h5 className="eventText">{date}</h5>
+                            <button onClick={() => this.props.openNewWindow(this.props.event.url)}>Buy Tix!</button>
                     </div>
                 </div>
             </div>

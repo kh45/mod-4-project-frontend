@@ -5,7 +5,7 @@ import EventCard from '../components/EventCards'
 class User extends Component {
 
   generateEventCards = (events) => {
-    // console.log(events)
+    // if (events === undefined )
     let k = events.map(event => <EventCard likeHandler={this.props.likeHandler} currentUser={this.props.currentUser} event={event} key={event.id} />)
     // let k = events.map(event => <div>hello</div>)
     // console.log(k)
