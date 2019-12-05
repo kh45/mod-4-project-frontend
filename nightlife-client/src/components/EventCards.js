@@ -7,6 +7,41 @@ export default class EventCard extends React.Component {
         currentEvent: null
     }
 
+    componentDidMount(){
+
+        if (this.props.currentUser.events){
+        this.props.currentUser.events.map(singleEvent => {
+            if (singleEvent.name.includes(this.props.event.name)){
+
+                const EMPTY_HEART = '♡'
+                const FULL_HEART = '♥'
+                let glyphStates = {
+                "♡": "♥",
+                "♥": "♡"
+                };
+        
+                let colorStates = {
+                "red" : "",
+                "": "red"
+                };
+    
+                let heart = document.getElementById(singleEvent.api_id)
+            
+                heart.innerText = glyphStates[heart.innerText];
+                heart.style.color = colorStates[heart.style.color];
+                let newUserEvent = this.props.currentUser.user_events.filter(singleUserEvent => {
+                    return singleUserEvent.event_id === singleEvent.id
+                })
+                this.setState({
+                    currentEvent: this.props.event,
+                    userEvent: newUserEvent[0],
+                    toggle: true
+                })
+            }
+        })
+    }
+    }
+
     onClickHandler = (event) => {
         const EMPTY_HEART = '♡'
         const FULL_HEART = '♥'
@@ -37,18 +72,18 @@ export default class EventCard extends React.Component {
                     "date" : `${this.props.event.dates.start.localDate}`,
                     "start" : `${this.props.event.dates.start.localTime}`,
                     "venue" : `${this.props.event._embedded.venues[0].name}`,
-                    "image" : `${this.props.event.images[0].url}`
+                    "image" : `${this.props.event.images[0].url}`,
+                    "api_id" : `${this.props.event.id}`
                 })
             })
             .then(resp => resp.json())
             .then(resp => {
-                console.log(resp)
                 this.setState({toggle: true, currentEvent: resp.event, userEvent: resp.user_event})
             })
         }
         if (this.state.toggle === true) {
             fetch("http://localhost:3000/events", {
-                method: 'DELETE',
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept' : 'application/json'
@@ -90,7 +125,7 @@ export default class EventCard extends React.Component {
                 <div className="col-md-8">
                     <div className="card-body">
                         
-                            <p  className="like">Like! <span onClick={(event) => this.onClickHandler(event)} className="like-glyph">&#x2661;</span></p>
+                            <p  className="like">Like! <span onClick={(event) => this.onClickHandler(event)} id={`${this.props.event.id}`} className="like-glyph">&#x2661;</span></p>
                     
                          <h5 className="card-title">{name}</h5>
                             <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
