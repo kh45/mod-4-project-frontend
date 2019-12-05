@@ -26,9 +26,10 @@ export default class EventCard extends React.Component {
                 };
     
                 let heart = document.getElementById(singleEvent.api_id)
-            
-                heart.innerText = glyphStates[heart.innerText];
-                heart.style.color = colorStates[heart.style.color];
+                if (heart === true){
+                    heart.innerText = glyphStates[heart.innerText];
+                    heart.style.color = colorStates[heart.style.color];
+                }
                 let newUserEvent = this.props.currentUser.user_events.filter(singleUserEvent => {
                     return singleUserEvent.event_id === singleEvent.id
                 })
