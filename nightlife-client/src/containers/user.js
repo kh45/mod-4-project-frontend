@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 import SavedEventContainer from './saved_event_container'
+import EventCard from '../components/EventCards'
 
 class User extends Component {
 
-  // generateCards = (array) => array.map(single => <Card single={single} />)
+  generateEventCards = (events) => {
+    // console.log(events)
+    let k = events.map(event => <EventCard likeHandler={this.props.likeHandler} currentUser={this.props.currentUser} event={event} key={event.id} />)
+    // let k = events.map(event => <div>hello</div>)
+    // console.log(k)
+    return k
+}
 
   render() {
     return(
@@ -14,6 +21,12 @@ class User extends Component {
                 <h1>{this.props.currentUser.name}</h1>
             </div>
         </div>
+        <div className="artistEventsContainer">
+                    <h1 className="hello">Upcoming Shows</h1>
+                    <div className="pls">
+                        {this.generateEventCards(this.props.currentUsersEvents)}
+                    </div>
+                </div>
       </div>
     )
   }

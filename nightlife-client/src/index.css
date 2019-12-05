@@ -135,6 +135,10 @@ input[type="password"]:focus{
 	color: #d2d2d2;
 }
 
+.instructions {
+  color: white;
+}
+
 .signupLink{
 	color: #d2d2d2;
 }
@@ -147,13 +151,22 @@ input[type="password"]:focus{
 .card {
   width: 400px;
   margin: 100px;
-  /* background-color: transparent; */
+  box-shadow: 10px 10px;
+  /* color: red; */
+  /* background-color: green; */
 }
 
 .cardContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   /* grid-column-gap: 50px; */
+}
+
+.artist-name {
+  position: absolute;
+  bottom: 8px;
+  color: white;
+  /* text-shadow: 10px 5px grey; */
 }
 
 .artistProfileContainer {
@@ -171,7 +184,7 @@ input[type="password"]:focus{
 
 .pls {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: minmax(100px, auto)
 }
 
 .hello {
@@ -211,13 +224,15 @@ input[type="password"]:focus{
 }
 
 .eventCard {
-  width: 540px;
+  /* position: absolute; */
+  right: 300px;
+  width: 80%;
   height: 250px;
 }
 
 .eventcard-img {
-  max-height: 100%;
-  max-width: 100%;
+  height: 248px;
+  width: auto;
 }
 
 

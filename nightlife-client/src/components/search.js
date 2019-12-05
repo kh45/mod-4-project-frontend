@@ -53,8 +53,8 @@ export default class Search extends React.Component {
             !this.state.profile ?
     (<div className="searchContainer">
         <div className="sideSearch">
-            <h1>SEARCH FOR YOUR STUFF</h1>
-            <h6>Option 1 - input group</h6>
+            <h6 className="instructions">Search for your favorite artists!</h6>
+            <h6 className="instructions">Once you find the artist you are looking for you can check their profile to see if they have any upcoming shows</h6>
             <div className="row">
                 <div className="col-md-12">
                     <form action="" acceptCharset="UTF-8" method="get" onSubmit={this.searchForArtist}>

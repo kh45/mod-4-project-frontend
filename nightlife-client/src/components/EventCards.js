@@ -75,11 +75,17 @@ export default class EventCard extends React.Component {
        
 
         const {name, images} = this.props.event
+        let img_url
+        if (images === undefined) {
+            img_url = this.props.event.image
+        } else {
+            img_url = images[0].url;
+        }
         return (
             <div className="card mb-3 eventCard">
                 <div className="row no-gutters">
                     <div className="col-md-4">
-                        <img src={images[0].url} className="eventcard-img" alt="..." />
+                        <img src={img_url} className="eventcard-img" alt="..." />
                     </div>
                 <div className="col-md-8">
                     <div className="card-body">

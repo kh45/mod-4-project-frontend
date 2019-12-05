@@ -76,36 +76,7 @@ export default class ArtistProfile extends React.Component {
                         {this.generateEventCards(this.state.upcomingEvents)}
                     </div>
                 </div>
-                {/* <CardContainer cards={this.generateEventCards(this.state.upcomingEvents)}/> */}
             </div>
         )
     }
 }
-
-
-// let {name, images, url, externalLinks: {instagram, twitter, youtube}} = this.props.artist
-//         if (instagram === undefined) {
-//             instagram = [{url: 'https://instagram.com'}]
-//         }
-//         if (youtube === undefined) {
-//             youtube = [{url: 'https://youtube.com'}]
-//         }
-//         if (twitter === undefined) {
-//             twitter = [{url: 'https://twitter.com'}]
-        // }
-
-
-//     if (this.props.artist.externalLinks === undefined) {
-//         this.props.artist.externalLinks = {twitter: 'http://twitter.com', youtube: 'http://youtube.com', instagram: 'http://instagram.com'}
-// } else {
-//     if (instagram === undefined) {
-//         this.props.artist.externalLinks.instagram = [{url: 'https://instagram.com'}]
-//     }
-//     if (youtube === undefined) {
-//         this.props.artist.externalLinks.youtube = [{url: 'https://youtube.com'}]
-//     }
-//     if (twitter === undefined) {
-//         this.props.artist.externalLinks.twitter = [{url: 'https://twitter.com'}]
-//     }
-// } 
-// let {name, images, url, externalLinks: {instagram, twitter, youtube}} = this.props.artist
