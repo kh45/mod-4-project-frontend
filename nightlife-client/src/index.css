@@ -76,6 +76,9 @@ code {
 	color: white;
 	font-weight: bolder;
 }
+.activated-heart {
+  color: red;
+}
 
 .loginContainer{
 	/* background-color: #13293d; */

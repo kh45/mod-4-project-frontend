@@ -20,9 +20,19 @@ export default class App extends React.Component {
     return window.history.pushState(null, null, '/new')
   }
 
-  // handleLikeButton = () => {
-  //   let stateCopy = {...currentUserEvents:}
-  // }
+  likeHandler = (event) => {
+    if (this.state.currentUsersEvents.includes(event)) {
+      let stateCopy = [...this.state.currentUsersEvents]
+      let newState = stateCopy.filter(singleEvent => singleEvent.id != event.id)
+      this.setState({currentUsersEvents: newState
+      })
+    }
+    else {
+      this.setState({
+        currentUsersEvents: [...this.state.currentUsersEvents, event]
+      })
+    }
+    }
   
 
   createAccount = (event) => {
@@ -68,7 +78,7 @@ export default class App extends React.Component {
         })
       })
     .then(resp => resp.json())
-    .then(user => this.setState({currentUser: user}))
+    .then(user => this.setState({currentUser: user, currentUsersEvents: user.events}))
     .catch(() => alert("Please enter a valid username."))
   }
 
@@ -95,7 +105,9 @@ export default class App extends React.Component {
           }
         </Route>
         <Route exact path="/search" render ={(props) => {
-          return <Search addEventToFavorites={this.addEventToFavorites}/>
+          return <Search addEventToFavorites={this.addEventToFavorites}
+          currentUser={this.state.currentUser}
+          likeHandler={this.likeHandler}/>
         }}/>
         <Route exact path="/users" render={(props) => {
           return <User 

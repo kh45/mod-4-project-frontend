@@ -73,7 +73,7 @@ export default class Search extends React.Component {
         </div>
         <CardContainer cards={this.state.results} showProfile={this.showProfile}/>
     </div>) :
-    <ArtistProfile artist={this.state.profile} addEventToFavorites={this.props.addEventToFavorites} />
+    <ArtistProfile currentUser={this.props.currentUser} likeHandler={this.props.likeHandler} artist={this.state.profile} />
         )
     }
 }
