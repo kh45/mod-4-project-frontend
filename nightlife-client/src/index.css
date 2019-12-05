@@ -228,6 +228,11 @@ input[type="password"]:focus{
   right: 300px;
   width: 80%;
   height: 250px;
+  background-color: black;
+}
+
+.eventText {
+  color: orange
 }
 
 .eventcard-img {

@@ -74,7 +74,9 @@ export default class EventCard extends React.Component {
                     "start" : `${this.props.event.dates.start.localTime}`,
                     "venue" : `${this.props.event._embedded.venues[0].name}`,
                     "image" : `${this.props.event.images[0].url}`,
-                    "api_id" : `${this.props.event.id}`
+                    "api_id" : `${this.props.event.id}`,
+                    "city" : `${this.props.event._embedded.venues[0].city.name}`,
+                    "state" : `${this.props.event._embedded.venues[0].state.stateCode}`
                 })
             })
             .then(resp => resp.json())
@@ -128,8 +130,13 @@ export default class EventCard extends React.Component {
         let venue;
         if (this.props.event._embedded) {
             venue = this.props.event._embedded.venues[0].name;
-            state = this.props.event._embedded.venues[0].state.stateCode;
+            // debugger
+            this.props.event._embedded.venues[0].state ? state = this.props.event._embedded.venues[0].state.stateCode : state = this.props.event._embedded.venues[0].country.name;
             city = this.props.event._embedded.venues[0].city.name
+        } else {
+            venue = this.props.event.venue;
+            state = this.props.event.state;
+            city = this.props.event.city;
         }
         return (
             <div className="card mb-3 eventCard">
@@ -142,11 +149,10 @@ export default class EventCard extends React.Component {
                         
                             <p  className="like">Like! <span onClick={(event) => this.onClickHandler(event)} id={`${this.props.event.id}`} className="like-glyph">&#x2661;</span></p>
                     
-                         <h5 className="card-title">{name}</h5>
-                            <h4>{venue}</h4>
-                            <h5>{city}, {state}</h5>
-                            <h5>{date}</h5>
-                            <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
+                         <h5 className="card-title eventText">{name}</h5>
+                            <h4 className="eventText">{venue}</h4>
+                            <h5 className="eventText">{city}, {state}</h5>
+                            <h5 className="eventText">{date}</h5>
                             <button onClick={() => this.props.openNewWindow(this.props.event.url)}>Buy Tix!</button>
                     </div>
                 </div>
