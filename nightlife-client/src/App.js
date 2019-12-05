@@ -78,7 +78,10 @@ export default class App extends React.Component {
         })
       })
     .then(resp => resp.json())
-    .then(user => this.setState({currentUser: user, currentUsersEvents: user.events}))
+    .then(user => {
+      console.log(user)
+      this.setState({currentUser: user, currentUsersEvents: user.events})
+    })
     .catch(() => alert("Please enter a valid username."))
   }
 
