@@ -116,6 +116,20 @@ export default class EventCard extends React.Component {
         } else {
             img_url = images[0].url;
         }
+        let date;
+        if (this.props.event.dates === undefined) {
+            date = this.props.event.start
+        } else {
+            date = this.props.event.dates.start.localDate
+        }
+        let city;
+        let state;
+        let venue;
+        if (this.props.event._embedded) {
+            venue = this.props.event._embedded.venues[0].name;
+            state = this.props.event._embedded.venues[0].state.stateCode;
+            city = this.props.event._embedded.venues[0].city.name
+        }
         return (
             <div className="card mb-3 eventCard">
                 <div className="row no-gutters">
@@ -128,9 +142,11 @@ export default class EventCard extends React.Component {
                             <p  className="like">Like! <span onClick={(event) => this.onClickHandler(event)} id={`${this.props.event.id}`} className="like-glyph">&#x2661;</span></p>
                     
                          <h5 className="card-title">{name}</h5>
-                            <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h4>{venue}</h4>
+                            <h5>{city}, {state}</h5>
+                            <h5>{date}</h5>
                             <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-                            <button onClick={() => this.props.addEventToFavorites(this.props.event)}>hello</button>
+                            <button onClick={() => this.props.openNewWindow(this.props.event.url)}>Buy Tix!</button>
                     </div>
                 </div>
             </div>
