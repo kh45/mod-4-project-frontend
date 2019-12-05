@@ -20,9 +20,13 @@ export default class ArtistProfile extends React.Component {
     getArtistEvents = (id) => {
         return fetch(`${eventsURL}${id}${apiKey}`)
         .then(response => response.json())
-        .then(events => this.setState({
-            upcomingEvents: events._embedded.events
-        }))
+        .then(events => {
+            if (events._embedded !== undefined) {
+                this.setState({
+                    upcomingEvents: events._embedded.events
+                })
+            }
+        })
     }
 
     componentDidMount = () => {
@@ -31,7 +35,7 @@ export default class ArtistProfile extends React.Component {
 
     generateEventCards = (events) => {
         console.log(events)
-        let k = events.map(event => <EventCard event={event} key={event.id} />)
+        let k = events.map(event => <EventCard event={event} key={event.id} addEventToFavorites={this.props.addEventToFavorites} />)
         // let k = events.map(event => <div>hello</div>)
         console.log(k)
         return k
@@ -39,15 +43,18 @@ export default class ArtistProfile extends React.Component {
 
 
     render() {
+        if (this.props.artist.externalLinks === undefined) {
+            this.props.artist.externalLinks = {twitter: [{url: 'http://twitter.com'}], youtube: [{url: 'http://youtube.com'}], instagram: [{url: 'http://instagram.com'}]}
+        } 
         let {name, images, url, externalLinks: {instagram, twitter, youtube}} = this.props.artist
         if (instagram === undefined) {
-            instagram = [{url: 'https://instagram.com'}]
+            this.props.artist.externalLinks.instagram = [{url: 'https://instagram.com'}]
         }
         if (youtube === undefined) {
-            youtube = [{url: 'https://youtube.com'}]
+            this.props.artist.externalLinks.youtube = [{url: 'https://youtube.com'}]
         }
         if (twitter === undefined) {
-            twitter = [{url: 'https://twitter.com'}]
+            this.props.artist.externalLinks.twitter = [{url: 'https://twitter.com'}]
         }
         return (
             <div className="artistProfileContainer"> 
@@ -74,3 +81,31 @@ export default class ArtistProfile extends React.Component {
         )
     }
 }
+
+
+// let {name, images, url, externalLinks: {instagram, twitter, youtube}} = this.props.artist
+//         if (instagram === undefined) {
+//             instagram = [{url: 'https://instagram.com'}]
+//         }
+//         if (youtube === undefined) {
+//             youtube = [{url: 'https://youtube.com'}]
+//         }
+//         if (twitter === undefined) {
+//             twitter = [{url: 'https://twitter.com'}]
+        // }
+
+
+//     if (this.props.artist.externalLinks === undefined) {
+//         this.props.artist.externalLinks = {twitter: 'http://twitter.com', youtube: 'http://youtube.com', instagram: 'http://instagram.com'}
+// } else {
+//     if (instagram === undefined) {
+//         this.props.artist.externalLinks.instagram = [{url: 'https://instagram.com'}]
+//     }
+//     if (youtube === undefined) {
+//         this.props.artist.externalLinks.youtube = [{url: 'https://youtube.com'}]
+//     }
+//     if (twitter === undefined) {
+//         this.props.artist.externalLinks.twitter = [{url: 'https://twitter.com'}]
+//     }
+// } 
+// let {name, images, url, externalLinks: {instagram, twitter, youtube}} = this.props.artist

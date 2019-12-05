@@ -10,7 +10,7 @@ class User extends Component {
       <div className="artistProfileContainer"> 
         <div className="sidenav">
             <div>
-                <img className= "artistProfilePic" />
+                <img className= "artistProfilePic" src={require('../assets/profilepic.gif')} />
                 <h1>{this.props.currentUser.name}</h1>
             </div>
         </div>

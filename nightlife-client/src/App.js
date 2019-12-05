@@ -12,7 +12,7 @@ export default class App extends React.Component {
     super()
     this.state = {
       currentUser: null,
-      currentUsersEvents: null
+      currentUsersEvents: []
     }
   }
 
@@ -43,10 +43,10 @@ export default class App extends React.Component {
     .then(user => this.setState({currentUser: user}))
   }
 
-  userButtonHandler = () => {
-    console.log('here')
-    return <Redirect to="/users" />
-  }
+  // userButtonHandler = () => {
+  //   console.log('here')
+  //   return <Redirect to="/users" />
+  // }
 
   logoutHandler = () => {
     this.setState({currentUser: null})
@@ -71,6 +71,14 @@ export default class App extends React.Component {
     .then(user => this.setState({currentUser: user}))
     .catch(() => alert("Please enter a valid username."))
   }
+
+  addEventToFavorites = (event) => {
+    if (!this.state.currentUsersEvents.includes(event)) {
+      this.setState({
+        currentUsersEvents: [...this.state.currentUsersEvents, event]
+      })
+    }
+  }
   
   render() {
   return (
@@ -87,7 +95,7 @@ export default class App extends React.Component {
           }
         </Route>
         <Route exact path="/search" render ={(props) => {
-          return <Search />
+          return <Search addEventToFavorites={this.addEventToFavorites}/>
         }}/>
         <Route exact path="/users" render={(props) => {
           return <User 

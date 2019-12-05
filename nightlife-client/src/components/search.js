@@ -27,7 +27,13 @@ export default class Search extends React.Component {
         console.log(`${URL_1}${query}${URL_2}`)
         fetch(`${URL_1}${query}${URL_2}`)
         .then(response => response.json())
-        .then(artists => this.setState({results: artists._embedded.attractions}))
+        .then(artists => {
+            if (artists._embedded === undefined) {
+                alert('No artists found, check your spelling!')
+            } else {
+                this.setState({results: artists._embedded.attractions})   
+            }
+            })
     }
 
     showProfile = (single) => {
@@ -55,7 +61,7 @@ export default class Search extends React.Component {
                         <div className="input-group">
                             <input type="text" name="query" id="search" value={this.state.query} onChange={this.handleChange} placeholder="Search for ARTISTS and hopefully in the near future, EVEVNTS, VENUES, AND LOCATIONS" className="form-control" />
                         <span className="input-group-btn">
-                            <input type="button" name="commit" value="Search" className="btn btn-primary" data-disable-with="Search" />
+                            <input type="submit" name="commit" value="Search" className="btn btn-primary" data-disable-with="Search" />
                         </span>
                     </div>
                 </form>
@@ -67,7 +73,7 @@ export default class Search extends React.Component {
         </div>
         <CardContainer cards={this.state.results} showProfile={this.showProfile}/>
     </div>) :
-    <ArtistProfile artist={this.state.profile} />
+    <ArtistProfile artist={this.state.profile} addEventToFavorites={this.props.addEventToFavorites} />
         )
     }
 }
