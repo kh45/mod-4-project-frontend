@@ -158,6 +158,10 @@ input[type="password"]:focus{
   /* grid-column-gap: 50px; */
 }
 
+.waiting {
+  font-size: 200px;
+}
+
 .artist-name {
   position: absolute;
   bottom: 8px;
@@ -195,6 +199,10 @@ input[type="password"]:focus{
   border-radius: 50%;
 }
 
+.none {
+  margin-top: 100px;
+}
+
 .sidenav {
   /* display: none; */
   height: 100%; /* Full-height: remove this if you want "auto" height */
@@ -203,9 +211,10 @@ input[type="password"]:focus{
   /* z-index: 1; Stay on top */
   /* top: 0; Stay at the top */
   /* left: 0; */
-  background-color: rgba(2, 9, 19);
+  background-color: rgba(2, 9, 19, 0.3);
   /* overflow-x: hidden; Disable horizontal scroll */
   padding-top: 20px;
+  /* opacity: 0.5; */
 }
 
 .social-icon {
@@ -221,7 +230,7 @@ input[type="password"]:focus{
 
 .eventCard {
   /* position: absolute; */
-  right: 300px;
+  right: 20%;
   width: 80%;
   height: 250px;
   background-color: black;
@@ -235,6 +244,10 @@ input[type="password"]:focus{
 .eventcard-img {
   height: 248px;
   width: auto;
+}
+
+.tix:hover {
+  cursor: pointer;
 }
 
 

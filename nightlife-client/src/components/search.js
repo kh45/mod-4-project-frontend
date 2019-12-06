@@ -71,7 +71,8 @@ export default class Search extends React.Component {
         {/* {this.generateCards(this.state.results)} */}
         {/* <CardContainer cards={this.generateCards(this.state.results)}/> */}
         </div>
-        <CardContainer cards={this.state.results} showProfile={this.showProfile}/>
+        {this.state.results.length ==  0 ? <p className="waiting logo">WHO WILL YOU SEE NEXT?</p> :
+        <CardContainer cards={this.state.results} showProfile={this.showProfile}/>}
     </div>) :
     <ArtistProfile currentUser={this.props.currentUser} likeHandler={this.props.likeHandler} artist={this.state.profile} />
         )

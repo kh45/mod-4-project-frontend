@@ -61,20 +61,20 @@ export default class ArtistProfile extends React.Component {
                 <div className="sidenav">
                     <div>
                         <img className= "artistProfilePic" src={images[1].url} />
-                        <h1>{name}</h1>
+                        <h1 className="logo">{name}</h1>
                         <div className="socialBar">
                             <img className="social-icon" src={require('../assets/instagram.png')} onClick={() => this.openNewWindow(instagram[0].url)} />
                             <img className="social-icon" src={require('../assets/twitter.png')} onClick={() => this.openNewWindow(twitter[0].url)}/>
                             <img className="social-icon" src={require('../assets/youtube.png')} onClick={() => this.openNewWindow(youtube[0].url)}/>
                         </div>
-                        <button className="button" onClick={() => this.openNewWindow(url)} >Get Tickets</button>
+                        <button className="btn btn-primary" onClick={() => this.openNewWindow(url)} >Get Tickets</button>
                     </div>
                 </div>
                 <div className="artistEventsContainer">
                     <h1 className="logo hello">Upcoming Shows</h1>
-                    <div className="pls">
+                    {this.generateEventCards(this.state.upcomingEvents).length == 0 ? <img className="none" src={require('../assets/no-upcoming-events.jpg')} /> :  <div className="pls">
                         {this.generateEventCards(this.state.upcomingEvents)}
-                    </div>
+                    </div>}
                 </div>
             </div>
         )
