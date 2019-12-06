@@ -162,7 +162,7 @@ input[type="password"]:focus{
   position: absolute;
   bottom: 8px;
   color: white;
-  /* text-shadow: 10px 5px grey; */
+  text-shadow: 2px 2px 8px #FF0000;
 }
 
 .artistProfileContainer {
@@ -228,7 +228,8 @@ input[type="password"]:focus{
 }
 
 .eventText {
-  color: orange
+  color: white;
+  text-shadow: 2px 2px 8px #FF0000;
 }
 
 .eventcard-img {
