@@ -26,10 +26,10 @@ export default class EventCard extends React.Component {
                 };
     
                 let heart = document.getElementById(singleEvent.api_id)
-                if (heart === true){
+    
                     heart.innerText = glyphStates[heart.innerText];
                     heart.style.color = colorStates[heart.style.color];
-                }
+                
                 let newUserEvent = this.props.currentUser.user_events.filter(singleUserEvent => {
                     return singleUserEvent.event_id === singleEvent.id
                 })
@@ -130,7 +130,6 @@ export default class EventCard extends React.Component {
         let venue;
         if (this.props.event._embedded) {
             venue = this.props.event._embedded.venues[0].name;
-            // debugger
             this.props.event._embedded.venues[0].state ? state = this.props.event._embedded.venues[0].state.stateCode : state = this.props.event._embedded.venues[0].country.name;
             city = this.props.event._embedded.venues[0].city.name
         } else {
@@ -153,8 +152,7 @@ export default class EventCard extends React.Component {
                             <h4 className="eventText">{venue}</h4>
                             <h5 className="eventText">{city}, {state}</h5>
                             <h5 className="eventText">{date}</h5>
-                            <button onClick={() => this.props.openNewWindow(this.props.event.url)}>Buy Tix!</button>
-                    </div>
+                            <button onClick={() => this.props.openNewWindow(this.props.event.url)}>Buy Tix!</button> </div>
                 </div>
             </div>
         </div>
