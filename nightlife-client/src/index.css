@@ -6,11 +6,11 @@ body {
   height: 100%;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./assets/login-background.jpg');
   background-size: cover;
   background-repeat: repeat;
@@ -27,8 +27,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: 'Bebas Neue', cursive;
 }
 
 .mainContent {
@@ -58,8 +57,7 @@ code {
 
 /*****LOGIN*****/
 
-@import url('https://fonts.googleapis.com/css?family=Raleway:300');
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
 
 .heading_h1{
 	color: #00a4e4;
@@ -255,7 +253,7 @@ input[type="password"]:focus{
 
 
 .font {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Bebas Neue', cursive;
   font-size: 60px;
   color: white;
 }
@@ -294,7 +292,7 @@ input[type="password"]:focus{
 
   .loginheader {
     margin-bottom: 50px;
-    font-size: 150px;
+    font-size: 175px;
     display: block;
     
 
@@ -311,7 +309,6 @@ input[type="password"]:focus{
 
   .logo {
     color: #fff;
-    font-family: Monoton;
     -webkit-animation: neon1 1.5s ease-in-out infinite alternate;
     -moz-animation: neon1 1.5s ease-in-out infinite alternate;
     animation: neon1 1.5s ease-in-out infinite alternate;
