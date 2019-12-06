@@ -19,7 +19,7 @@ export default class Login extends React.Component {
 										<input type="password" name="password" placeholder="Password" className="form-control" required="" />
 									</div>
 									<div className="col-md-8 col-md-offset-2 col-xs-8 col-xs-offset-2  form-group" align="center">
-										<button className="login_btn" name="login">Log In</button>
+										<button className="btn-outline-warning waves-effect login_btn" name="login">Log In</button>
 										<p className="forgotLink"><a href=""> Forgot Password? </a></p>
 									</div>
 								</form>
