@@ -34,6 +34,12 @@ code {
   padding-top: 200px
 } 
 
+.like {
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+}
+
 
 
 .background-container {
