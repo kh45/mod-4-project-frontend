@@ -59,7 +59,7 @@ export default class Search extends React.Component {
                 <div className="col-md-12">
                     <form action="" acceptCharset="UTF-8" method="get" onSubmit={this.searchForArtist}>
                         <div className="input-group">
-                            <input type="text" name="query" id="search" value={this.state.query} onChange={this.handleChange} placeholder="Search for ARTISTS and hopefully in the near future, EVEVNTS, VENUES, AND LOCATIONS" className="form-control" />
+                            <input type="text" name="query" id="search" value={this.state.query} onChange={this.handleChange} placeholder="Search for ARTISTS and hopefully in the near future, EVENTS, VENUES, AND LOCATIONS" className="form-control" />
                         <span className="input-group-btn">
                             <input type="submit" name="commit" value="Search" className="btn btn-primary" data-disable-with="Search" />
                         </span>
